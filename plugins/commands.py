@@ -22,6 +22,9 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        loading_sticker_msg = await message.reply_sticker("CAACAgUAAxkBAAEKDgRk3mNK7e7bHw7jXwuMEYZ9c5Ok8wACkgMAAss0gFYqWFwkHQkh7jAE")  # Loading sticker ID
+        await asyncio.sleep(2)
+        await loading_sticker_msg.delete()
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
